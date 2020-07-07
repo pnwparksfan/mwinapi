@@ -2,6 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>mwinapi</id>
+    <title>ManagedWinapi</title>
     <version>0.3.0.3</version>
     <authors>Schierlm</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +11,7 @@
     <description>A collection of .NET components that wrap PInvoke calls to access native API by managed code.</description>
     <copyright>Copyright ©  2005, 2006, 2007, 2008, 2009, 2010, 2011 Michael Schierl</copyright>
     <tags>WinApi Native</tags>
-    <repository type="svn" url="svn://svn.code.sf.net/p/mwinapi/code/trunk" />
+    <repository type="svn" url="https://svn.code.sf.net/p/mwinapi/code/trunk" />
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="Accessibility" />
     </frameworkAssemblies>
