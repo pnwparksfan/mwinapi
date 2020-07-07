@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>mwinapi</id>
+    <version>0.3.0.3</version>
+    <authors>Schierlm</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">LGPL-2.1-only</license>
+    <projectUrl>http://mwinapi.sourceforge.net/</projectUrl>
+    <description>A collection of .NET components that wrap PInvoke calls to access native API by managed code.</description>
+    <copyright>Copyright ©  2005, 2006, 2007, 2008, 2009, 2010, 2011 Michael Schierl</copyright>
+    <tags>WinApi Native</tags>
+    <repository type="svn" url="svn://svn.code.sf.net/p/mwinapi/code/trunk" />
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Accessibility" />
+    </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="net40-client" />
+    </dependencies>
+    <!-- Only works with PackageReference, not packages.config -->
+    <!-- <contentFiles>
+      <files include="any/any/ManagedWinapiNativeHelper.dll" buildAction="Content" copyToOutput="true" />
+    </contentFiles> -->
+  </metadata>
+  <files>
+    <file src="bin\Release\ManagedWinapi.dll" target="lib\net40-client\ManagedWinapi.dll" />
+    <file src="bin\Release\ManagedWinapi.xml" target="lib\net40-client\ManagedWinapi.xml" />
+    <!-- Only works with PackageReference, not packages.config -->
+    <!-- <file src="bin\Release\ManagedWinapiNativeHelper.dll" target="contentFiles\any\any" /> -->
+    <file src="bin\Release\ManagedWinapiNativeHelper.dll" target="build" />
+    <file src="mwinapi.targets" target="build" />
+  </files>
+</package>
