@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net40-client;netcoreapp3.1</TargetFrameworks>
+		<UseWindowsForms>true</UseWindowsForms>
+		<PackageId>mwinapi</PackageId>
+		<AssemblyName>mwinapi</AssemblyName>
+		<Product>ManagedWinapi</Product>
+		<Version>0.3.0.4</Version>
+		<Authors>Schierlm</Authors>
+		<PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
+		<PackageProjectUrl>http://mwinapi.sourceforge.net/</PackageProjectUrl>
+		<Description>A collection of .NET components that wrap PInvoke calls to access native API by managed code.</Description>
+		<Copyright>Copyright ©  2005, 2006, 2007, 2008, 2009, 2010, 2011 Michael Schierl</Copyright>
+		<PackageTags>WinApi Native</PackageTags>
+		<RepositoryType>svn</RepositoryType>
+		<RepositoryUrl>https://svn.code.sf.net/p/mwinapi/code/trunk</RepositoryUrl>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<IncludeSource>True</IncludeSource>
+		<IncludeSymbols>True</IncludeSymbols>   
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>   
+		<Configurations>Debug;ReleaseUnsigned;ReleaseSigned</Configurations>   
+		<DebugType>full</DebugType>   
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+		<DebugType>full</DebugType>
+		<Optimize>False</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(Configuration.StartsWith('Release'))">
+	    <Optimize>True</Optimize>
+		<DebugType>pdbonly</DebugType>   
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'ReleaseSigned'">
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>ManagedWinapiKey.snk</AssemblyOriginatorKeyFile>
+		<PackageId>mwinapi-signed</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<PackageReference Include="System.Management">
+			<Version>6.0.0</Version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net40-client'">
+		<Reference Include="Accessibility" />
+		<Reference Include="System.Management" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.CLSCompliant">
+			<_Parameter1>true</_Parameter1>
+			<_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="crosshair.cur" />
+		<EmbeddedResource Include="crosshair.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="ManagedWinapiNativeHelper.dll" Pack="True" PackagePath="build\">
+			<CopyToOutputDirectory>true</CopyToOutputDirectory>
+		</None>
+		<None Include="mwinapi.targets" Pack="True" PackagePath="build\$(PackageId).targets" />
+	</ItemGroup>
+</Project>
