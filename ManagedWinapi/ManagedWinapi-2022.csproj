@@ -5,7 +5,7 @@
 		<PackageId>mwinapi</PackageId>
 		<AssemblyName>mwinapi</AssemblyName>
 		<Product>ManagedWinapi</Product>
-		<Version>0.3.0.4</Version>
+		<Version>0.3.0.5</Version>
 		<Authors>Schierlm</Authors>
 		<PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
 		<PackageProjectUrl>http://mwinapi.sourceforge.net/</PackageProjectUrl>
@@ -18,8 +18,8 @@
 		<IncludeSource>True</IncludeSource>
 		<IncludeSymbols>True</IncludeSymbols>   
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>   
-		<Configurations>Debug;ReleaseUnsigned;ReleaseSigned</Configurations>   
-		<DebugType>full</DebugType>   
+		<Configurations>Debug;ReleaseUnsigned;ReleaseSigned</Configurations>
+		<Deterministic>true</Deterministic>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -28,8 +28,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$(Configuration.StartsWith('Release'))">
-	    <Optimize>True</Optimize>
-		<DebugType>pdbonly</DebugType>   
+		<DebugType>portable</DebugType>
+		<Optimize>True</Optimize>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'ReleaseSigned'">
